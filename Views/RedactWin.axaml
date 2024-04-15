@@ -1,0 +1,48 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SuperSayan.Views.RedactWin"
+        Title="RedactWin">
+       <DockPanel
+                Name="Panel"
+                LastChildFill="True">
+                <TextBlock 
+                        DockPanel.Dock="Top"
+                        Text="Окно добавления">
+                </TextBlock>
+                <Image Source="/Assets/avalonia-logo.ico" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30 0 " Height="50" Width="50" DockPanel.Dock="Top"></Image >
+        <StackPanel>
+                <TextBox 
+                        Name="newPlayerName">
+                </TextBox>
+                <TextBox 
+                        Name="newWeight">
+                </TextBox>
+                <TextBox 
+                        Name="newHeight">
+                </TextBox>
+                <DatePicker 
+                        Name="BirthPicker">
+                </DatePicker>
+                <DatePicker 
+                        Name="BeginPicker">
+                </DatePicker>
+                <ComboBox
+                        Name="Pos"></ComboBox>
+                <ComboBox
+                        Name="Team"></ComboBox>
+                <Button
+                        Name="Save"
+                        Content="Добав"
+                        Click="Save_OnClick">
+                        
+                </Button>
+                <Button
+                        Name="Canc"
+                        Content="отмена">
+                </Button>
+        </StackPanel>
+                </DockPanel>
+</Window>

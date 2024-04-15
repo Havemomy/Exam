@@ -1,0 +1,203 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SuperSayan.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SuperSayan.Views.MainWin"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SuperSayan">
+    <DockPanel
+        Name="Panel"
+        LastChildFill="True">
+        <TextBlock 
+            DockPanel.Dock="Top"
+            Text="Основное окно">
+        </TextBlock>
+        <Label
+            Name="Label"
+            DockPanel.Dock="Bottom" Content="Операция выполнена успешно"
+            HorizontalAlignment="Center"
+            Background="Chartreuse"
+            IsVisible="False">
+            
+        </Label>
+        <Image Source="/Assets/logo.ico" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="30 0 " Height="50" Width="50" DockPanel.Dock="Top"></Image >
+        <TabControl>
+                <TabItem
+                    Header="Игроки">
+                    <Grid VerticalAlignment="Top" >
+                    <DataGrid 
+                        Margin="0 30 0 0"
+                        Name="DataGrid"
+                        x:CompileBindings="False"
+                        Foreground="Black"
+                        Background="Azure"
+                        IsReadOnly="True"
+                        >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Позиция" Binding="{Binding PositionName}"  />
+                        <DataGridTextColumn
+                            Header="Имя игрока" Binding="{Binding PlayerName}" />
+                        <DataGridTextColumn
+                            Header="Вес"  Binding="{Binding Weight, StringFormat=кг}" />
+                        <DataGridTextColumn
+                            Header="Рост" Binding="{Binding Height, StringFormat=cm}"/>
+                        <DataGridTextColumn
+                            Header="Дата рождения" Binding="{Binding BirthDate}" />
+                        <DataGridTextColumn
+                            Header="Дата начала" Binding="{Binding BeginDate}"  />
+                        <DataGridTextColumn
+                            Header="Команда" Binding="{Binding TeamName}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                   <Panel
+                       VerticalAlignment="Top">
+                       <Button
+                           Name="AddButton"
+                           HorizontalContentAlignment="Center"
+                           Width="100"
+                           Content="+"
+                           Click="AddButton_OnClick">
+                       </Button>
+                       <Button
+                           Name="DelButton"
+                           HorizontalContentAlignment="Center"
+                           Width="100"
+                           Content="-"
+                           Margin="100 0"
+                           Click="DelButton_OnClick">
+                       </Button>
+                       <Button
+                           Name="RedButton"
+                           HorizontalContentAlignment="Center"
+                           Width="100"
+                           Content="*"
+                           Margin="200 0"
+                           Click="RedButton_OnClick">
+                       </Button>
+                       <ComboBox
+                           x:CompileBindings="False"
+                           Name="FillComboBox"
+                           DisplayMemberBinding="{Binding PositionName}"
+                           Width="100"
+                           Margin="300 0">
+                       </ComboBox>
+                       <TextBox
+                           Name="SerTextBox"
+                           Width="300"
+                           Margin="550 0 "
+                           TextChanging="SerTextBox_OnTextChanging">
+                       </TextBox>
+                   </Panel>
+
+                    </Grid>
+                </TabItem>
+                <TabItem
+                    Header="Позиции">
+                    <Grid VerticalAlignment="Top" >
+                    <DataGrid 
+                        Margin="0 30 0 0"
+                        Name="DataGrid2"
+                        x:CompileBindings="False"
+                        Foreground="Black"
+                        Background="Azure"
+                        >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Идентификатор"  />
+                        <DataGridTextColumn 
+                            Header="Позиция"  />
+                    </DataGrid.Columns>
+                </DataGrid>
+                   <Panel
+                       VerticalAlignment="Top">
+                       <Button
+                           Name="AddButton2"
+                           HorizontalContentAlignment="Center"
+                           Width="100"
+                           Content="+">
+                       </Button>
+                       <Button
+                           Name="DelButton2"
+                           HorizontalContentAlignment="Center"
+                           Width="100"
+                           Content="-"
+                           Margin="100 0">
+                       </Button>
+                       <Button
+                           Name="RedButton2"
+                           HorizontalContentAlignment="Center"
+                           Width="100"
+                           Content="*"
+                           Margin="200 0">
+                       </Button>
+                       <ComboBox
+                           Name="Fill2ComboBox"
+                           Width="100"
+                           Margin="300 0">
+                       </ComboBox>
+                       <TextBox
+                           Name="Ser2TextBox"
+                           Width="300"
+                           Margin="550 0 ">
+                       </TextBox>
+                   </Panel>
+                    </Grid>
+                </TabItem>
+                <TabItem
+                    Header="Команды"
+                >                    <Grid VerticalAlignment="Top" >
+                    <DataGrid 
+                        Margin="0 30 0 0"
+                        Name="DataGrid3"
+                        x:CompileBindings="False"
+                        Foreground="Black"
+                        Background="Azure"
+                    >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                Header="Идентификатор"  />
+                            <DataGridTextColumn 
+                                Header="Команда"  />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Panel
+                        VerticalAlignment="Top">
+                        <Button
+                            Name="AddButton3"
+                            HorizontalContentAlignment="Center"
+                            Width="100"
+                            Content="+">
+                        </Button>
+                        <Button
+                            Name="DelButton3"
+                            HorizontalContentAlignment="Center"
+                            Width="100"
+                            Content="-"
+                            Margin="100 0">
+                        </Button>
+                        <Button
+                            Name="RedButton3"
+                            HorizontalContentAlignment="Center"
+                            Width="100"
+                            Content="*"
+                            Margin="200 0">
+                        </Button>
+                        <ComboBox
+                            Name="Fill3ComboBox"
+                            Width="100"
+                            Margin="300 0">
+                        </ComboBox>
+                        <TextBox
+                            Name="Ser3TextBox"
+                            Width="300"
+                            Margin="550 0 ">
+                        </TextBox>
+                    </Panel>
+                </Grid></TabItem>
+            </TabControl>
+    </DockPanel>
+</Window>
